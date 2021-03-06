@@ -1,10 +1,9 @@
 <template>
     <div style="padding: 30px">
         <VueSlickCarousel style="width: 200px" v-bind="settings">
-            <div><h3>1</h3></div>
-            <div><h3>2</h3></div>
-            <div><h3>3</h3></div>
-            <div><h3>4</h3></div>
+            <p class="test">1</p>
+            <p class="test">2</p>
+            <p class="test">3</p>
         </VueSlickCarousel>
     </div>
 </template>
@@ -42,5 +41,8 @@
         content: '>';
         color: red;
         font-size: 30px;
+    }
+    .test:focus {
+        outline: 0ch;
     }
 </style>
