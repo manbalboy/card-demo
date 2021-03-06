@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-        ddfdsafdasfsda
         <common-header></common-header>
     </div>
 </template>
