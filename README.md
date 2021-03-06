@@ -24,3 +24,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+    // "vue-awesome-swiper": "^4.1.1",
+    // "swiper": "^6.5.0",
