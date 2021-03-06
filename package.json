@@ -46,11 +46,13 @@
           "useTabs": false,
           "tabWidth": 4,
           "trailingComma": "all",
+          "printWidth" : 400,
           "bracketSpacing": true,
           "arrowParens": "avoid",
           "proseWrap": "preserve",
           "jsxBracketSameLine": true,
-          "vueIndentScriptAndStyle": true
+          "vueIndentScriptAndStyle": true,
+          "endOfLine" : "auto"
         }
       ]
     },
