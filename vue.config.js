@@ -1,4 +1,6 @@
+const pagesConfig = require('./src/entry/pages.config.js');
 module.exports = {
+    pages: pagesConfig,
     devServer: {
         overlay: false,
     },
