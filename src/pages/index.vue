@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        index.vue
+        index.vue.
         <common-header></common-header>
         <test></test>
     </div>
