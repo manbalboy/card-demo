@@ -1,5 +1,5 @@
 {
-  "name": "scard-demo",
+  "name" : "scard-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -51,7 +51,6 @@
           "bracketSpacing": true,
           "arrowParens": "avoid",
           "proseWrap": "preserve",
-          "jsxBracketSameLine": true,
           "vueIndentScriptAndStyle": true,
           "endOfLine": "auto"
         }
