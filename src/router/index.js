@@ -8,17 +8,16 @@ const routes = [
         path: '/',
         name: 'Home',
         component: () => import('@/views/Home.vue'),
-        meta: {
-            layout: 'DefaultLayout',
-        },
     },
     {
-        path: '/login',
-        name: 'login',
-        component: () => import('@/views/Login.vue'),
-        meta: {
-            layout: 'HomeLayout',
-        },
+        path: '/cookies',
+        name: 'cookies',
+        component: () => import('@/views/VueCookiesTest.vue'),
+    },
+    {
+        path: '/dropzone',
+        name: 'dropzone',
+        component: () => import('@/views/Vue2DropZone.vue'),
     },
 ];
 

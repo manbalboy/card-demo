@@ -13,3 +13,4 @@ new Vue({
     store,
     render: h => h(App),
 }).$mount('#app');
+import '/node_modules/dropzone/dist/dropzone.css';
