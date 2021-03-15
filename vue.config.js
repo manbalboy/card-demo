@@ -4,7 +4,7 @@ module.exports = {
     devServer: {
         overlay: false,
     },
-    publicPath: process.env.NODE_ENV === 'production' ? '/testt/' : '/',
+    // publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
     // css: {
     //     loaderOptions: {
     //         sass: {
