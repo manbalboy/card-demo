@@ -3,20 +3,39 @@
         <h2>
             Vue.js Notification
             <br />
-            <a href="https://github.com/euvl/vue-notification/blob/master/README.md" target="readme">Readme</a>
+            <a href="https://github.com/euvl/vue-notification/blob/master/README.md" target="readme"
+                >Readme</a
+            >
             <a href="https://github.com/euvl/vue-notification/" target="issues">Github</a>
         </h2>
         <!-- CSS animation example -->
         <notifications group="foo-css" position="bottom left" :speed="500" />
 
         <!-- Velocity animation example -->
-        <notifications group="foo-velocity" position="bottom right" animation-type="velocity" :speed="500" />
+        <notifications
+            group="foo-velocity"
+            position="bottom right"
+            animation-type="velocity"
+            :speed="500"
+        />
 
         <!-- Custom style example -->
-        <notifications group="custom-style" position="top center" classes="n-light" :max="3" :width="400" />
+        <notifications
+            group="custom-style"
+            position="top center"
+            classes="n-light"
+            :max="3"
+            :width="400"
+        />
 
         <!-- Custom template example -->
-        <notifications group="custom-template" :duration="5000" :width="500" animation-name="v-fade-left" position="top left">
+        <notifications
+            group="custom-template"
+            :duration="5000"
+            :width="500"
+            animation-name="v-fade-left"
+            position="top left"
+        >
             <template slot="body" slot-scope="props">
                 <div class="custom-template">
                     <div class="custom-template-icon">

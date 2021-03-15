@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/ko/**/*.json\""
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -13,6 +14,7 @@
     "sass-loader": "^10.1.1",
     "vue": "^2.6.12",
     "vue-cookies": "^1.7.4",
+    "vue-i18n": "^8.24.1",
     "vue-notification": "^1.3.20",
     "vue-router": "^3.5.1",
     "vue-slick-carousel": "^1.0.6",
@@ -20,6 +22,7 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@intlify/vue-i18n-loader": "^1.0.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
@@ -30,6 +33,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^5.0.0",
     "prettier": "^2.2.1",
+    "vue-cli-plugin-i18n": "~2.0.1",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -52,7 +56,7 @@
           "useTabs": false,
           "tabWidth": 4,
           "trailingComma": "all",
-          "printWidth": 400,
+          "printWidth": 100,
           "bracketSpacing": true,
           "arrowParens": "avoid",
           "proseWrap": "preserve",

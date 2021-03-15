@@ -24,6 +24,11 @@ const routes = [
         name: 'notification',
         component: () => import('@/views/VueNotification.vue'),
     },
+    {
+        path: '/i18n',
+        name: 'i18n',
+        component: () => import('@/views/VueI18n.vue'),
+    },
 ];
 
 const router = new VueRouter({
