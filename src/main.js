@@ -4,7 +4,11 @@ import Layout from '@/layouts/Layout.vue';
 import router from '@/router/index.js';
 import store from '@/store/index.js';
 import VueCookies from 'vue-cookies';
+import Notifications from 'vue-notification';
+
+Vue.use(Notifications);
 Vue.use(VueCookies);
+
 Vue.component('Layout', Layout);
 Vue.config.productionTip = false;
 

@@ -19,6 +19,11 @@ const routes = [
         name: 'dropzone',
         component: () => import('@/views/Vue2DropZone.vue'),
     },
+    {
+        path: '/notification',
+        name: 'notification',
+        component: () => import('@/views/VueNotification.vue'),
+    },
 ];
 
 const router = new VueRouter({
