@@ -1,5 +1,5 @@
 <template>
-    <div>로그인</div>
+    <div>CardMain</div>
 </template>
 
 <script>
