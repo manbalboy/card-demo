@@ -9,6 +9,11 @@ const cardRouter = [
         name: 'test',
         component: () => import('../pages/Test.vue'),
     },
+    {
+        path: '/test2',
+        name: 'test2',
+        component: () => import('../pages/Test2.vue'),
+    },
 ];
 
 export default cardRouter;
