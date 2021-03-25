@@ -1,4 +1,5 @@
 import commonUtil from './common-util';
+import typeCheckUtil from './type-check-util';
 
 export default {
     addParam(url, string) {
