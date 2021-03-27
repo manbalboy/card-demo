@@ -328,4 +328,55 @@ export default {
         secs = Math.floor(amount);
         return { days, hours, mins, secs };
     },
+    /**
+     *
+     * @function
+     * @name : diff
+     * @description : 주어진 두 날자의 간격을 시, 분 , 초로 반환
+     * @param {Date} t1 기준시간
+     * @param {Date} t2 비교할시간
+     * @return {Object} dates 시간차 값들이 들어있는 객체
+     * @return {number} dates.ms 밀리초
+     * @return {number} dates.secs 초
+     * @return {number} dates.mins 분
+     * @return {number} dates.hours 시
+     * @return {number} dates.days 일
+     * @return {number} dates.weeks 주
+     * @return {number} dates.diff
+     */
+    diff(t1, t2) {
+        if (!typeCheckUtil.isDate(t1)) {
+            t1 = new Date(t1);
+        }
+        if (!typeCheckUtil.isDate(t2)) {
+            t2 = new Date(t2);
+        }
+
+        let diff = t1.getTime() - t2.getTime();
+        let ddiff = diff;
+
+        diff = Math.abs(diff);
+        let ms = diff % 1000;
+        diff /= 1000;
+
+        let s = Math.floor(diff % 60);
+        diff /= 60;
+
+        let m = Math.floor(diff % 60);
+        diff /= 60;
+
+        let h = Math.floor(diff % 24);
+        diff /= 24;
+        let d = Math.floor(diff);
+        let w = Math.floor(diff / 7);
+        return {
+            ms,
+            secs: s,
+            mins: m,
+            hours: h,
+            days: d,
+            weeks: w,
+            diff: ddiff,
+        };
+    },
 };
