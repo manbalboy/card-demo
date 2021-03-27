@@ -379,4 +379,138 @@ export default {
             diff: ddiff,
         };
     },
+
+    /**
+     *
+     * @function
+     * @name : isLeapYear
+     * @description : 윤년인가 확인
+     * @param {Date|number|string} y
+     * @return {boolean}
+     */
+    isLeapYear(y) {
+        if (toString.call(y) === '[object Date]') {
+            y = y.getUTCFullYear();
+        }
+
+        return (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
+    },
+
+    /**
+     *
+     * @function
+     * @name : add
+     * @description : 날자가감 함수
+     * @param {Date} date 날자
+     * @param {string} interval 가감타입 (ms, s, m, h, d, M, y)
+     * @param {number} value 가감 크기
+     * @return {Date}
+     */
+    add(date, interval, value) {
+        let d = new Date(date.getTime());
+        if (!interval || value === 0) {
+            return d;
+        }
+
+        switch (interval) {
+            case 'ms':
+                d.setMilliseconds(d.getMilliseconds() + value);
+                break;
+            case 's':
+                d.setSeconds(d.getSeconds() + value);
+                break;
+            case 'm':
+                d.setMinutes(d.getMinutes() + value);
+                break;
+            case 'h':
+                d.setHours(d.getHours() + value);
+                break;
+            case 'd':
+                d.setDate(d.getDate() + value);
+                break;
+            case 'M':
+                d.setMonth(d.getMonth() + value);
+                break;
+            case 'y':
+                d.setFullYear(d.getFullYear() + value);
+                break;
+        }
+        return d;
+    },
+
+    /**
+     *
+     * @function
+     * @name : max
+     * @description : 주어진 두날자 중에서 큰값
+     * @param {Date|string} date1 비교할 문자열1
+     * @param {Date|string} date2 비교할 문자열2
+     * @return {Date}
+     */
+    max(date1, date2) {
+        return new Date(Math.max(this.parse(date1), this.parse(date2)));
+    },
+
+    /**
+     *
+     * @function
+     * @name : min
+     * @description : 주어진 두날자 중에서 작은값
+     * @param {Date|string} date1 비교할 문자열1
+     * @param {Date|string} date2 비교할 문자열2
+     * @return {Date}
+     */
+    min(date1, date2) {
+        return new Date(Math.min(this.parse(date1), this.parse(date2)));
+    },
+
+    /**
+     *
+     * @function
+     * @name : normalize
+     * @description : 시분초 normalize화 처리
+     * @param {Date} h 시
+     * @param {Date} M 분
+     * @param {Date} s 초
+     * @param {Date} ms 밀리초
+     * @return {Object} dates 시간차 값들이 들어있는 객체
+     * @return {number} dates.ms 밀리초
+     * @return {number} dates.sec 초
+     * @return {number} dates.min 분
+     * @return {number} dates.hour 시
+     * @return {number} dates.day 일
+     */
+
+    normalize: function (h, M, s, ms) {
+        h = h || 0;
+        M = M || 0;
+        s = s || 0;
+        ms = ms || 0;
+        let d = 0;
+        if (ms > 1000) {
+            s += Math.floor(ms / 1000);
+        }
+
+        if (s > 60) {
+            M += Math.floor(s / 60);
+        }
+
+        if (M > 60) {
+            h += Math.floor(M / 60);
+            M = M % 60;
+        }
+
+        if (h > 24) {
+            d += Math.floor(h / 24);
+            h = h % 24;
+        }
+
+        return {
+            day: d,
+            hour: h,
+            min: M,
+            sec: s,
+            ms,
+        };
+    },
 };
