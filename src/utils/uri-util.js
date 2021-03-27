@@ -2,6 +2,15 @@ import commonUtil from './common-util';
 import typeCheckUtil from './type-check-util';
 
 export default {
+    /**
+     *
+     * @function
+     * @name : addParam
+     * @description : 주어진 url에 object쿼리스트링을 조합
+     * @param {string} url url
+     * @param {Object|string} string
+     * @return {string} 결과 문자열
+     */
     addParam(url, string) {
         if (typeCheckUtil.isObject(string)) {
             string = this.toQueryString(string);
@@ -12,7 +21,16 @@ export default {
         return url;
     },
 
-    toQueryString: function (params, isEncode) {
+    /**
+     *
+     * @function
+     * @name : toQueryString
+     * @description : 객체를 쿼리 스트링으로 변환
+     * @param {Object} params json 객체
+     * @param {boolean} isEncode 인코딩여부
+     * @return {string} 결과 문자열
+     */
+    toQueryString(params, isEncode) {
         if (typeof params === 'string') {
             return params;
         }

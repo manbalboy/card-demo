@@ -1,6 +1,14 @@
 import commonUtil from './common-util';
 
 export default {
+    /**
+     *
+     * @function
+     * @name : parse
+     * @description : 주어진 날자형식의 문자열을 Date객체로 변환
+     * @param {string} dateStringInRange 날자형식의 문자열
+     * @return {Date}
+     */
     parse(dateStringInRange) {
         let isoExp = /^\s*(\d{4})(\d{2})(\d{2})(\d{2})?(\d{2})?(\d{2})?\s*$/;
         let date, month, parts;
