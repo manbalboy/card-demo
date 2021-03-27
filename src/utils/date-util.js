@@ -148,4 +148,80 @@ export default {
             return false;
         }
     },
+
+    /**
+     *
+     * @function
+     * @name : between
+     * @description : 주어진 날자가 두날자 사이에 있는 지 여부
+     * @param {Date|string} date 날자 문자열
+     * @param {Date|string} start 시작 날자 문자열
+     * @param {Date|string} end 끝 날자 문자열
+     * @return {boolean}
+     */
+    between(date, start, end) {
+        if (!date.getDate) {
+            date = this.parse(date);
+        }
+        if (!start.getDate) {
+            start = this.parse(start);
+        }
+        if (!end.getDate) {
+            end = this.parse(end);
+        }
+
+        return date.getTime() >= start.getTime() && date.getTime() <= end.getTime();
+    },
+
+    /**
+     *
+     * @function
+     * @name : compare
+     * @description : 날자비교
+     * @param {Date|string} date1 비교할 문자열1
+     * @param {Date|string} date2 비교할 문자열2
+     * @return {number} -1 : date1가 이후 , 0 : 동일 , 1: date2가 이후
+     */
+    compare(date1, date2) {
+        if (!typeCheckUtil.isDate(date1)) {
+            date1 = this.parse(date1);
+        }
+        if (!typeCheckUtil.isDate(date2)) {
+            date2 = this.parse(date2);
+        }
+
+        return date1.getTime() > date2.getTime() ? -1 : date1.getTime() === date2.getTime() ? 0 : 1;
+    },
+
+    /**
+     *
+     * @function
+     * @name : equalsYMD
+     * @description : 년월일 비교
+     * @param {Date|string} date1 비교할 문자열1
+     * @param {Date|string} date2 비교할 문자열2
+     * @return {boolean} 두날자의 년월이 동일한지 여부
+     */
+    equalsYMD(date1, date2) {
+        let ret = true;
+
+        if (!date1 || !date2) {
+            return false;
+        }
+
+        if (!typeCheckUtil.isDate(date1)) {
+            date1 = this.parse(date1);
+        }
+        if (!typeCheckUtil.isDate(date2)) {
+            date2 = this.parse(date2);
+        }
+        ['getFullYear', 'getMonth', 'getDate'].forEach(fn => {
+            ret = ret && date1[fn]() === date2[fn]();
+            if (!ret) {
+                return false;
+            }
+        });
+
+        return ret;
+    },
 };
