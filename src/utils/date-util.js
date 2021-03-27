@@ -224,4 +224,108 @@ export default {
 
         return ret;
     },
+
+    /**
+     *
+     * @function
+     * @name : calcDate
+     * @description : 주어진 날자를 기준으로 type만큼 가감된 날자를 format 형태로 반환
+     * @param {Date|string} date 기준날자
+     * @param {string} type -2d, -3d, 4M, 2y
+     * @param {string} format
+     * @return {Date|string} format 지정값에 따라 결과를 날자형 또는 문자열로 변환해서 반환
+     */
+    calcDate(date, type, format) {
+        date = this.parse(date);
+        if (!date) {
+            return null;
+        }
+
+        let m = type.match(/([-+]*)([0-9]*)([a-z]+)/i);
+        let g = m[1] === '-' ? '-1' : 1;
+        let d = (m[2] | 0) * g;
+
+        switch (m[3]) {
+            case 'd':
+                date.setDate(date.getDate() + d);
+                break;
+            case 'w':
+                date.setDate(date.getDate() + d * 7);
+                break;
+            case 'M':
+                date.setMonth(date.getMonth() + d);
+                break;
+            case 'y':
+                date.setMonth(date.getFullYear() + d);
+                break;
+        }
+        if (format) {
+            return this.format(date, format === 'format' ? 'yyyy-MM-dd' : format);
+        }
+        return date;
+    },
+
+    /**
+     *
+     * @function
+     * @name : monthDiff
+     * @description : 두날자의 월 간격
+     * @param {Date|string} date1 비교할 문자열1
+     * @param {Date|string} date2 비교할 문자열2
+     * @return {number} 두날자의 월차
+     */
+    monthDiff(date1, date2) {
+        date1 = this.parse(date1);
+        date2 = this.parse(date2);
+
+        let months;
+        months = (date2.getFullYear() - date1.getFullYear()) * 12;
+        months -= date1.getMonth() + 1;
+        months += date2.getMonth();
+        return months;
+    },
+
+    /**
+     *
+     * @function
+     * @name : dayInMonth
+     * @description : 주어진 년월의 일수를 반환
+     * @param {number|string} year 년도
+     * @param {number|string} month 월
+     * @return {number} 주어진 년월의 마지막 날자
+     */
+    dayInMonth(year, month) {
+        let dd = new Date(year | 0, month | 0, 0);
+        return dd.getDate();
+    },
+
+    /**
+     *
+     * @function
+     * @name : splits
+     * @description : 밀리초를 시,분,초로 변환
+     * @param {number|string} amount 밀리초값
+     * @return {Object} 변환된값
+     * @return {number} days
+     * @return {number} hours
+     * @return {number} mins
+     * @return {number} secs
+     */
+    splits(amount) {
+        let days, hours, mins, secs;
+
+        amount = amount / 1000;
+
+        days = Math.floor(amount / 86400);
+        amount = amount % 86400;
+
+        hours = Math.floor(amount / 3600);
+        amount = amount % 3600;
+
+        mins = Math.floor(amount / 60);
+        amount = amount % 60;
+
+        secs = Math.floor(amount);
+        return { days, hours, mins, secs };
+    },
 };
