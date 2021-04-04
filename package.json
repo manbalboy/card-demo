@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "idle-vue": "^2.0.5",
     "lodash": "^4.17.21",
     "sass-loader": "^10.1.1",
     "vue": "^2.6.12",
