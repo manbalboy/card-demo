@@ -10,6 +10,14 @@
             <span style="height: 100px">My popup</span>
         </Overlay>
 
+        <Overlay2>
+            <Overlay></Overlay>
+            <Overlay></Overlay>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+        </Overlay2>
+
         <button @click="opened = true">Open Popup</button>
         <button @click="visible = true">Open Popup</button>
 
@@ -124,6 +132,7 @@
     // import AutoLogout from './AutoLogout.vue';
     import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
     import Overlay from './Overlay.vue';
+    import Overlay2 from './Overlay2.vue';
     import 'swiper/css/swiper.css';
     export default {
         components: {
@@ -131,6 +140,7 @@
             Swiper,
             SwiperSlide,
             Overlay,
+            Overlay2,
         },
         data() {
             return {
