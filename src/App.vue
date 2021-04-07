@@ -1,5 +1,18 @@
 <template>
     <div id="app">
+        <Overlay
+            :opened="opened"
+            :visible="visible"
+            @closed="opened = visible = false"
+            :backdrop="false"
+            animate="slide-up"
+        >
+            <span style="height: 100px">My popup</span>
+        </Overlay>
+
+        <button @click="opened = true">Open Popup</button>
+        <button @click="visible = true">Open Popup</button>
+
         <a class="link_event" href="javascript:EVENT_LINK();">이벤트 전체보기</a>
         <div class="indi_wrap ui_mainslider_mobile_indi">
             <div class="indi_new_wrap no_back">
@@ -110,15 +123,19 @@
 <script>
     // import AutoLogout from './AutoLogout.vue';
     import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
+    import Overlay from './Overlay.vue';
     import 'swiper/css/swiper.css';
     export default {
         components: {
             // AutoLogout,
             Swiper,
             SwiperSlide,
+            Overlay,
         },
         data() {
             return {
+                opened: false,
+                visible: false,
                 swiperOption: {
                     slidesPerView: 1,
                     // spaceBetween: 30,
