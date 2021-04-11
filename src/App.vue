@@ -1,149 +1,27 @@
 <template>
     <div id="app">
-        <Overlay
-            :opened="opened"
-            :visible="visible"
-            @closed="opened = visible = false"
-            :backdrop="false"
-            animate="slide-up"
-        >
-            <span style="height: 100px">My popup</span>
-        </Overlay>
+        {{ replaceText }}
 
-        <Overlay2>
-            <Overlay></Overlay>
-            <Overlay></Overlay>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-        </Overlay2>
-
-        <button @click="opened = true">Open Popup</button>
-        <button @click="visible = true">Open Popup</button>
-
-        <a class="link_event" href="javascript:EVENT_LINK();">이벤트 전체보기</a>
-        <div class="indi_wrap ui_mainslider_mobile_indi">
-            <div class="indi_new_wrap no_back">
-                <span class="ui_indi_page_no">4</span>
-                <span class="ui_indi_page_dash">/</span>
-                <span class="ui_indi_page_total">6</span>
-                <a href="#" class="btn_new_playstop ui_auto_rolling play" role="button"> </a>
-            </div>
-        </div>
-
-        <swiper class="visual_item_wrap new_visual" :options="swiperOption">
-            <swiper-slide class="visual_item ui_first current left">
-                <a>
-                    <div class="visual_bg"></div>
-                    <div class="item white">
-                        <div class="info_wrap info_wrap_img">
-                            <p class="tit">
-                                <img
-                                    src="//static11.samsungcard.com/wcms/event_m/__icsFiles/afieldfile/2020/12/08/m_text1.png"
-                                    alt="백팩 어디서 사요? 카드에 따라와요 "
-                                />
-                            </p>
-                            <p class="txt">
-                                <img
-                                    src="//static11.samsungcard.com/wcms/event_m/__icsFiles/afieldfile/2020/12/10/m_text2.png"
-                                    alt="신규 발급받고 한 번만 써도 라이너 백팩을 발급 선물로!"
-                                />
-                            </p>
-                        </div>
-                    </div>
-                    <div class="visual_obj">
-                        <p>
-                            <img
-                                src="//static11.samsungcard.com/wcms/event_m/__icsFiles/afieldfile/2020/12/08/m_img.png"
-                                alt="카카오 라이언가방, 국민행복v2카드 플레이트, 하트"
-                            />
-                        </p>
-                    </div>
-                </a>
-            </swiper-slide>
-            <swiper-slide class="visual_item ui_first current left">
-                <a>
-                    <div class="visual_bg"></div>
-                    <div class="item white">
-                        <div class="info_wrap info_wrap_img">
-                            <p class="tit">
-                                <img
-                                    src="//static11.samsungcard.com/wcms/event_m/__icsFiles/afieldfile/2021/04/01/m_text1_1.png"
-                                    alt="시원한 할부금리 할인! 60개월 연2.5%"
-                                />
-                            </p>
-                            <p class="txt">
-                                <img
-                                    src="//static11.samsungcard.com/wcms/event_m/__icsFiles/afieldfile/2021/04/01/m_text2_2.png"
-                                    alt="삼성카드 다이렉트 오토로~ (4월기준)"
-                                />
-                            </p>
-                        </div>
-                    </div>
-                    <div class="visual_obj">
-                        <p data-pos="{}">
-                            <img
-                                src="//static11.samsungcard.com/wcms/event_m/__icsFiles/afieldfile/2021/04/01/m_img_2.png"
-                                alt="다이렉트오토 금리인하 이벤트 자세히보기"
-                            />
-                        </p>
-                    </div>
-                </a>
-            </swiper-slide>
-            <swiper-slide class="visual_item ui_first current left">
-                <a>
-                    <div class="visual_bg"></div>
-                    <div class="item white">
-                        <div class="info_wrap info_wrap_img">
-                            <p class="tit">
-                                <img
-                                    src="//static11.samsungcard.com/wcms/event_m/__icsFiles/afieldfile/2021/04/06/m_text1_2.png"
-                                    alt="오직 4월- 선착순 3천명!"
-                                />
-                            </p>
-                            <p class="txt">
-                                <img
-                                    src="//static11.samsungcard.com/wcms/event_m/__icsFiles/afieldfile/2021/04/06/m_text2_2.png"
-                                    alt="American Express 메탈네임택, 플레잉카드 소장의 기회"
-                                />
-                            </p>
-                        </div>
-                    </div>
-                    <div class="visual_obj">
-                        <p data-pos="{}">
-                            <img
-                                src="//static11.samsungcard.com/wcms/event_m/__icsFiles/afieldfile/2021/04/06/m_img.png"
-                                alt="아멕스 한정판 굿즈 이벤트 자세히보기"
-                            />
-                        </p>
-                    </div>
-                </a>
-            </swiper-slide>
-
-            <div class="page_indi" slot="pagination"></div>
-
-            <div class="swiper-button-prev" slot="button-prev"></div>
-            <div class="swiper-button-next" slot="button-next"></div>
-        </swiper>
+        <Modal>
+            <h3 slot="header">32</h3>
+        </Modal>
     </div>
 </template>
 
 <script>
-    // import AutoLogout from './AutoLogout.vue';
-    import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-    import Overlay from './Overlay.vue';
-    import Overlay2 from './Overlay2.vue';
-    import 'swiper/css/swiper.css';
+    import Modal from 'vue2-modal-compnent-manbalboy';
+    import 'vue2-modal-compnent-manbalboy/dist/vue2Modal.css';
+
     export default {
         components: {
-            // AutoLogout,
-            Swiper,
-            SwiperSlide,
-            Overlay,
-            Overlay2,
+            Modal,
+        },
+        created() {
+            this.replaceText = this.replaceText.replaceAll('a', 'z');
         },
         data() {
             return {
+                replaceText: 'aabbbbaaaaa',
                 opened: false,
                 visible: false,
                 swiperOption: {
