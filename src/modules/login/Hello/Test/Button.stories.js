@@ -1,27 +1,11 @@
-# scard-demo
-
-## story-book 설치 
-```
-npx -p @storybook/cli sb init --type vue
-
-
-//피그마 디자인
-npm install --save-dev storybook-addon-designs@alpha
-
-
-// .storybook/main.js
-module.exports = {
-  addons: ['storybook-addon-designs'],
-}
-
-// .storybook/addon.js
-import 'storybook-addon-designs/register'
-
-
-
 import MyButton from './Button.vue';
 import { withDesign } from 'storybook-addon-designs';
-
+import { withKnobs } from '@storybook/addon-knobs';
+import {
+    previewTemplate,
+    VUE_PROPS_TEMPLATE,
+    DEFAULT_VUE_CODESANDBOX,
+} from 'storybook-addon-preview';
 export default {
     title: 'Scard/Test/Button',
     component: MyButton,
@@ -29,7 +13,12 @@ export default {
         backgroundColor: { control: 'color' },
         size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
     },
-    decorators: [withDesign],
+    decorators: [withDesign, withKnobs],
+
+    source: {
+        // Note: Path should be start from /src/ and must be end with file extension
+        publicPath: '/src/stories/Test/Button.vue',
+    },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -49,6 +38,22 @@ Primary.parameters = {
         type: 'figma',
         url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',
     },
+    preview: [
+        {
+            tab: 'Vue',
+            template: previewTemplate`
+            <template>
+    <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+</template>
+
+</script>
+
+            `,
+            language: 'html',
+            copy: true,
+            codesandbox: DEFAULT_VUE_CODESANDBOX([]),
+        },
+    ],
 };
 
 export const Secondary = Template.bind({});
@@ -67,23 +72,3 @@ Small.args = {
     size: 'small',
     label: 'Button',
 };
-
-#  Knobs 애드온 적용
-npm install --save-dev @storybook/addon-knobs
-
-
-# code preview --naver
-npm i storybook-addon-preview --dev
-npm i -D @storybook/addon-controls
-
-// .storybook/main.js
-module.exports = {
-    addons: [
-        "storybook-addon-preview/register"
-        ,'@storybook/addon-controls'
-    ],
-};
-
-
-
-```
