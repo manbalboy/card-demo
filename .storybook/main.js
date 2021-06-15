@@ -8,7 +8,14 @@ module.exports = {
     "@storybook/addon-essentials",
     "storybook-addon-designs",
     "storybook-zeplin/register",
-    "storybook-addon-preview/register"
+    "storybook-addon-preview/register",
+    "./my-addon/register"
+  ],
 
-  ]
+  refs: {
+    vue: {
+      title: 'React',
+      url: 'http://localhost:6006',
+    },
+  },
 }
